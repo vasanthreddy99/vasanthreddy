@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f9b082;
+            color: #333;
+            margin: 0;
+          }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+          }
+          
+
+        nav ul {
+            
+            display: inline;
+            margin-right: 20px;          
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+          }
+        input[type="text"] {
+            width: 76%;
+            
+            padding: 10px;
+            margin-bottom: 10px;
+            border:#000000;
+            border-radius: 10px;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: rgb(228, 214, 214);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #response {
+            
+            background-color: #e5e5d9;
+            width: 80%;
+            min-height: 200px;
+            padding: 12px;
+            margin-top: 12px;
+            border: 5px solid rgb(45, 32, 32);
+            border-radius: 5px;
+            overflow-y: auto;
+        }
+
+        #response p {
+            margin: 5px 0;
+            display:block;
+            align-items: center;
+        }
+
+        .user-message {
+            color: #000000; /* Green color for user messages */
+        }
+
+        .bot-message {
+            color: #080808; /* Magenta color for bot messages */
+        }
+
+        .profile-image {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .message-input-container {
+            display: flex;
+            align-items: center;
+            position: static;
+            align-items: center;
+        }
+
+        .message-input-container input[type="text"] {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+    <header>
+        <h1>NOTES DEPOT</h1>
+        <h3>SIMPLIFIED LEARNING RESOURCE</h3>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="notes.html">NOTES</a></li>
+                <li><a href="videos.html">TUTORIAL VIDEOS</a></li>
+                <li><a href="about.html">BUDDY</a></li>
+            </ul>
+        </nav>
+    </header>
+    <body>
+    <div id="response"></div>
+    <div class="message-input-container">
+        <input type="text" id="userInput" placeholder="Type your message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            const responseDiv = document.getElementById('response');
+
+            // Clear the input box
+            document.getElementById('userInput').value = '';
+
+            const response = await fetch('http://localhost:5000', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userInput: userInput })
+            });
+
+            const responseData = await response.json();
+
+            // Append user message with profile image
+            responseDiv.innerHTML += `<p class="user-message"><img src="images\istockphoto-1300845620-612x612.jpg" alt="User Profile" class="profile-image"> User: ${userInput}</p>`;
+            // Append bot response with profile image
+            responseDiv.innerHTML += `<p class="bot-message"><img src="images/bot.jpg" alt="ChatGPT Profile" class="profile-image"> buddy: ${responseData.bot}</p>`;
+            
+            // Scroll to the bottom
+            responseDiv.scrollTop = responseDiv.scrollHeight;
+        }
+    </script>
+</body>
+</html>

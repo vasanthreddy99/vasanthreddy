@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Chat</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #response {
+            width: 80%;
+            min-height: 200px;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+            overflow-y: auto;
+        }
+
+        #response p {
+            margin: 5px 0;
+        }
+
+        .user-message {
+            color: #00ff00; /* Green color for user messages */
+        }
+
+        .bot-message {
+            color: #ff00ff; /* Magenta color for bot messages */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>NOTES DEPOT</h1>
+        <h3>SIMPLIFIED LEARNING RESOURCE</h3>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="notes.html">NOTES</a></li>
+                <li><a href="videos.html">TUTORIAL VIDEOS</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <input type="text" id="userInput" placeholder="Type your message...">
+    <button onclick="sendMessage()">Send</button>
+    <div id="response"></div>
+
+    <script>
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput').value;
+            const responseDiv = document.getElementById('response');
+
+            // Clear the input box
+            document.getElementById('userInput').value = '';
+
+            const response = await fetch('http://localhost:5000', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userInput: userInput })
+            });
+
+            const responseData = await response.json();
+
+            // Append user message
+            responseDiv.innerHTML += `<p class="user-message">User: ${userInput}</p>`;
+            // Append bot response
+            responseDiv.innerHTML += `<p class="bot-message">ChatGPT: ${responseData.bot}</p>`;
+            
+            // Scroll to the bottom
+            responseDiv.scrollTop = responseDiv.scrollHeight;
+        }
+    </script>
+</body>
+</html>
