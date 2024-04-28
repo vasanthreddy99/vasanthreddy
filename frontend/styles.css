@@ -1,0 +1,151 @@
+/* styles.css */
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9b082;
+  color: #333;
+  margin: 0;
+}
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+header h3 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav ul li a:hover {
+  color: #ffcc00;
+}
+
+/* Main Styles */
+main {
+  padding: 20px;
+}
+
+/* Section Styles */
+section {
+  margin-bottom: 20px;
+}
+
+section h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+section p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #f1824f;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  font-size: 14px;
+}
+.videoFrame {
+  padding-left: 0.4;
+  width: 800px;
+  height: 450px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 5px 9px rgba(0,0,0,0.1);
+}
+#videosContainer {
+  margin: 0 auto;
+  width: 80%;
+}
+ 
+h2 {
+  text-align: center;
+}
+
+/* Style the search input and button */
+#subjectInput {
+  display: block;
+  margin: 20px auto;
+  padding: 8px;
+  width: 300px;
+}
+.container {
+  display:-webkit-box;
+  justify-content:stretch;
+  align-items:center;
+  height:0vmax;
+}
+
+.image-container {
+  position:relative;
+}
+
+.image-container img {
+  width:100%; /* Make the image responsive */
+  height:fit-content;
+  position: relative;
+
+  }
+
+.text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}

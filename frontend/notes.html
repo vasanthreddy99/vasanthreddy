@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes Depot - Notes</title>
+
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <header>
+    <h1>NOTES DEPOT </h1>
+    <h3>SIMPLYFIED LEARNING RESOURCE</h3>
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="notes.html">NOTES</a></li>
+        <li><a href="videos.html">TUTORIAL VIDEOS</a></li>
+        <li><a href="about.html">BUDDY</a>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Get Your Notes Now</h2>
+      <p></p>
+      <form id="noteForm">
+        <label for="year">Year:</label>
+        <select id="year" name="year"></select>
+
+        <label for="semester">Semester:</label>
+        <select id="semester" name="semester"></select>
+
+        <label for="subject">Subject:</label>
+        <select id="subject" name="subject"></select>
+
+        <button type="submit">Fetch Notes</button>
+    </form>
+
+    <div id="notes-container"></div>
+    
+      <script src="script.js"></script>
+      
+          </section>
+  </main>  
+</body>
+</html>
+

@@ -1,0 +1,109 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply styles to the header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9b082;
+  color: #333;
+  margin: 0;
+}
+
+/* Style the navigation links */
+nav ul {
+  list-style-type: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Style the main section */
+main {
+  padding: 20px;
+}
+
+/* Style the form */
+form {
+  margin-bottom: 20px;
+}
+
+/* Style the dropdowns */
+select {
+  padding: 8px;
+  margin-right: 10px;
+  background-color: #d1e8e8; /* Background color for dropdown */
+  border: 1px solid #d1e8e8; /* Border color for dropdown */
+  border-radius: 5px; /* Rounded corners */
+}
+
+/* Style the notes container */
+#notes-container {
+  margin-top: 20px;
+}
+
+/* Style the view and download options */
+.view-download {
+  margin-top: 40px;
+}
+
+.view-download a {
+  display: inline-block;
+  margin-block-start: 10px;
+  padding: 8px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.view-download a:hover {
+  background-color: #45a049;
+}
+
+/* Center the h2 */
+section h2 {
+  text-align: center;
+}
+header h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+header h3 {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
